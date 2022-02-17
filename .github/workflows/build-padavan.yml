@@ -30,8 +30,14 @@ jobs:
         cpio git python-docutils gettext automake autopoint texinfo build-essential help2man \
         pkg-config zlib1g-dev libgmp3-dev libmpc-dev libmpfr-dev libncurses5-dev libltdl-dev
     - name: Clone source code
+      env:
+        KERNEL: 4.4 #3.4|4.4
       run: |
+        if [ $KERNEL = "4.4" ] ; then
+        git clone --depth=1 https://github.com/MeIsReallyBa/padavan-4.4.git /opt/rt-n56u
+        else
         sudo git clone --depth=1 https://github.com/hongdou9022/rt-n56u.git /opt/rt-n56u
+        if
         cd /opt/rt-n56u/toolchain-mipsel
         sudo ./dl_toolchain.sh
         sudo mkdir -p /opt/images/
