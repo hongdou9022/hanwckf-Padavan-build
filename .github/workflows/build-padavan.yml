@@ -37,7 +37,7 @@ jobs:
         git clone --depth=1 https://github.com/MeIsReallyBa/padavan-4.4.git /opt/rt-n56u
         else
         sudo git clone --depth=1 https://github.com/hongdou9022/rt-n56u.git /opt/rt-n56u
-        if
+        fi
         cd /opt/rt-n56u/toolchain-mipsel
         sudo ./dl_toolchain.sh
         sudo mkdir -p /opt/images/
