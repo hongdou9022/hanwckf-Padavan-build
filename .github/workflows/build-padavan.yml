@@ -36,7 +36,7 @@ jobs:
         if [ $KERNEL = "4.4" ] ; then
         git clone --depth=1 https://github.com/MeIsReallyBa/padavan-4.4.git /opt/rt-n56u
         else
-        sudo git clone --depth=1 https://github.com/hongdou9022/rt-n56u.git /opt/rt-n56u
+        git clone --depth=1 https://github.com/hongdou9022/rt-n56u.git /opt/rt-n56u
         fi
         cd /opt/rt-n56u/toolchain-mipsel
         sudo ./dl_toolchain.sh
@@ -54,7 +54,6 @@ jobs:
         sudo cp -f configs/templates/$TNAME.config .config
         ###########
         sed -i 's/CONFIG_FIRMWARE_INCLUDE_HTTPS=n/CONFIG_FIRMWARE_INCLUDE_HTTPS=y/g' .config
-        sed -i 's/CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE=n/CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE=y/g' .config
         ###########
         if [ $KERNEL = "4.4" ] ; then
         sed -i 's/CONFIG_FIRMWARE_INCLUDE_TTYD=n/CONFIG_FIRMWARE_INCLUDE_TTYD=y/g' .config
