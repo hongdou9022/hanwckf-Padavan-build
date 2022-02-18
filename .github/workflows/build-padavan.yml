@@ -56,17 +56,15 @@ jobs:
         sed -i 's/CONFIG_FIRMWARE_INCLUDE_HTTPS=n/CONFIG_FIRMWARE_INCLUDE_HTTPS=y/g' .config
         ###########
         if [ $KERNEL = "4.4" ] ; then
-        sed -i 's/CONFIG_FIRMWARE_INCLUDE_XRAY=y/CONFIG_FIRMWARE_INCLUDE_XRAY=n/g' build_firmware_modify
-        sed -i 's/CONFIG_FIRMWARE_INCLUDE_TROJAN=y/CONFIG_FIRMWARE_INCLUDE_TROJAN=n/g' build_firmware_modify
-        sed -i 's/CONFIG_FIRMWARE_INCLUDE_SSOBFS=y/CONFIG_FIRMWARE_INCLUDE_SSOBFS=n/g' build_firmware_modify
-        sed -i 's/CONFIG_FIRMWARE_INCLUDE_DDNSTO=y/CONFIG_FIRMWARE_INCLUDE_DDNSTO=n/g' build_firmware_modify
-        #sed -i 's/CONFIG_FIRMWARE_INCLUDE_SHADOWSOCKS=y/CONFIG_FIRMWARE_INCLUDE_SHADOWSOCKS=n/g' build_firmware_modify
-        #sed -i 's/CONFIG_FIRMWARE_INCLUDE_V2RAY=n/CONFIG_FIRMWARE_INCLUDE_V2RAY=y/g' build_firmware_modify
-        sed -i 's/CONFIG_FIRMWARE_INCLUDE_SMARTDNS=n/CONFIG_FIRMWARE_INCLUDE_SMARTDNS=y/g' build_firmware_modify
+        sed -i 's/CONFIG_FIRMWARE_INCLUDE_TTYD=n/CONFIG_FIRMWARE_INCLUDE_TTYD=y/g' .config
+        sed -i 's/CONFIG_FIRMWARE_INCLUDE_IPERF3=n/CONFIG_FIRMWARE_INCLUDE_IPERF3=y/g' .config
+        echo "CONFIG_FIRMWARE_INCLUDE_ADBYBY=y" >> .config
+        echo "CONFIG_FIRMWARE_INCLUDE_SMARTDNS=y" >> .config
+        echo "CONFIG_FIRMWARE_INCLUDE_ZEROTIER=y" >> .config #zerotier ~1.3M
         fi
         ###########
         sudo ./clear_tree
-        sudo ./build_firmware_modify $TNAME
+        sudo ./build_firmware_modify $TNAME 0
         sudo mv -f images/*.trx /opt/images/
     - name : Upload packages
       uses: actions/upload-artifact@master
