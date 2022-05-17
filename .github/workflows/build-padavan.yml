@@ -58,9 +58,9 @@ jobs:
         if [ $KERNEL = "4.4" ] ; then
         sed -i 's/CONFIG_FIRMWARE_INCLUDE_TTYD=n/CONFIG_FIRMWARE_INCLUDE_TTYD=y/g' .config
         sed -i 's/CONFIG_FIRMWARE_INCLUDE_IPERF3=n/CONFIG_FIRMWARE_INCLUDE_IPERF3=y/g' .config
-        echo "CONFIG_FIRMWARE_INCLUDE_ADBYBY=y" >> .config
-        echo "CONFIG_FIRMWARE_INCLUDE_SMARTDNS=y" >> .config
-        #echo "CONFIG_FIRMWARE_INCLUDE_ZEROTIER=y" >> .config #zerotier ~1.3M
+        # echo "CONFIG_FIRMWARE_INCLUDE_ADBYBY=y" >> .config
+        # echo "CONFIG_FIRMWARE_INCLUDE_SMARTDNS=y" >> .config
+        echo "CONFIG_FIRMWARE_INCLUDE_ZEROTIER=y" >> .config #zerotier ~1.3M
         fi
         ###########
         sudo ./clear_tree
